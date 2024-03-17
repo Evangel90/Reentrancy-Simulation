@@ -1,0 +1,27 @@
+{
+  "name": "reentrancy",
+  "version": "1.0.0",
+  "description": "reentrancy vulnerability simulation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evangel90/Reentrancy-Simulation.git"
+  },
+  "author": "Oladipo Evangel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Evangel90/Reentrancy-Simulation/issues"
+  },
+  "homepage": "https://github.com/Evangel90/Reentrancy-Simulation#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.21.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ethers": "^6.11.1"
+  }
+}
