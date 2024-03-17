@@ -12,7 +12,7 @@ contract Attacker{
     }
 
     function attack() public payable{
-        require(msg.value > 0, "You ether to attack the contract.");
+        require(msg.value > 0, "You need ether to attack the contract.");
         victim.deposit{value: msg.value}();
         victim.withdraw();
     }
