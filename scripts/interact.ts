@@ -1,5 +1,7 @@
 // interact.ts
 
+import { setBlockGasLimit } from "@nomicfoundation/hardhat-toolbox/network-helpers";
+
 const API_URL = process.env.API_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const CONTRACT1_ADDRESS = process.env.CONTRACT1_ADDRESS;
@@ -41,11 +43,11 @@ async function getBalance() {
 async function main() {
     getBalance();
     
-    const deposit = await victimContract.deposit({value: ethers.parseEther('0.1')});
+    const deposit = await victimContract.deposit({value: ethers.parseEther('0.01')});
     await deposit.wait();
     getBalance();
     
-    const attack = await attackerContract.attack({value: ethers.parseEther('0.01'), gasLimit: 5000000});
+    const attack = await attackerContract.attack({value: ethers.parseEther('0.001')});
     await attack.wait();
     getBalance();
     
