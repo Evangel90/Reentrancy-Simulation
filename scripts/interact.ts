@@ -45,7 +45,7 @@ async function main() {
     await deposit.wait();
     getBalance();
     
-    const attack = await attackerContract.attack({value: ethers.parseEther('0.1')});
+    const attack = await attackerContract.attack({value: ethers.parseEther('0.1'), gasLimit: 5000000});
     await attack.wait();
     getBalance();
     

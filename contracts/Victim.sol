@@ -15,9 +15,8 @@ contract Victim {
    function withdraw() external payable {
         require(balances[msg.sender] > 0, "You don't have any balance");
         uint256 amount = balances[msg.sender];
-        balances[msg.sender] = 0;
-        // payable(msg.sender).transfer(amount);
         (bool success, ) = msg.sender.call{value: amount}("");
+        balances[msg.sender] = 0;
         require(success, "Transfer failed.");
    }
 }

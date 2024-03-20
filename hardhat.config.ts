@@ -9,6 +9,7 @@ const config: HardhatUserConfig = {
   defaultNetwork: "sepolia",
   networks: {
     hardhat: {
+      blockGasLimit: 100000000429720,
     },
     sepolia: {
       url:API_URL as string,
