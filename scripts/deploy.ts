@@ -31,5 +31,5 @@ main()
     process.exit(1);
   });
 
-//Attacker.sol address = 0xF00b2d178c55B75C900431B403E40828675c9dF5
-//Victim.sol address = 0x2dc07C8990Bbe7219D78Df92a6a2F6Aab6914742
+//Victim.sol address = 0x352f88E632F987be59B51C3f795f30621852C1dc
+//Attacker.sol address = 0x8eA81fCe4Aef7BeE9F1E50F7Ef2E4e366b951A54

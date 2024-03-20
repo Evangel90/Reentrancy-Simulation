@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.24;
+pragma solidity ^0.7.6;
 
 // Uncomment this line to use console.log
 // import "hardhat/console.sol";
@@ -13,8 +13,9 @@ contract Victim {
    }
 
    function withdraw() external payable {
-        require(balances[msg.sender] > 0, "You don't have any balance");
         uint256 amount = balances[msg.sender];
+        require(balances[msg.sender] > 0, "You don't have any balance");
+        
         (bool success, ) = msg.sender.call{value: amount}("");
         balances[msg.sender] = 0;
         require(success, "Transfer failed.");
